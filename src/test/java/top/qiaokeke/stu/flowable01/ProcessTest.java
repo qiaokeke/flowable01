@@ -37,11 +37,7 @@ public class ProcessTest {
                 Map resources = deployment.getResources();
                 log.info("resources:{}",resources);
             }
-
-
     }
-
-
 
     @Test
     public void testTask(){

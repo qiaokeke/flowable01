@@ -10,7 +10,6 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
-import javax.transaction.TransactionManager;
 
 @Configuration
 public class FlowableConfig {
@@ -18,11 +17,13 @@ public class FlowableConfig {
 
     @Value("com.mysql.jdbc.Driver")
     String driverClassName;
-    @Value("jdbc:mysql://mysql.network.qiaokeke.top:3306/flowable?useUnicode=true&characterEncoding=utf-8")
+    @Value("jdbc:mysql://qiaokeke.top:7306/flowable?useUnicode=true&characterEncoding=utf-8")
     String url;
+   /* @Value("jdbc:mysql://mysql.network.qiaokeke.top:3306/flowable?useUnicode=true&characterEncoding=utf-8")
+    String url;*/
     @Value("root")
     String username;
-    @Value("Aa651830")
+    @Value("cecepJX#2018DB")
     String password;
 
     @Bean
@@ -46,6 +47,7 @@ public class FlowableConfig {
         SpringProcessEngineConfiguration configuration = new SpringProcessEngineConfiguration();
         configuration.setDataSource(dataSource);
         configuration.setTransactionManager(transactionManager);
+        configuration.setDatabaseSchemaUpdate("true");
         return configuration;
     }
 
